@@ -3,530 +3,445 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Selamat Ulang Tahun Fadillah - CEO Plengger
-</title>
+<title>Selamat Ulang Tahun Fadillah - CEO Plengger</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+/* ============================
+   RESET & BASE
+   ============================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
-body{
-
-font-family:'Poppins',sans-serif;
-
-overflow-x:hidden;
-
-background:url("bg-paper.jpg");
-
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
-background-repeat:no-repeat;
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background: url("bg-paper.jpg") center center / cover fixed no-repeat;
 }
 
-body::before{
-
-content:"";
-
-position:fixed;
-inset:0;
-
-background:rgba(255,240,245,.45);
-
-backdrop-filter:blur(2px);
-
-z-index:-1;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 240, 245, .45);
+  backdrop-filter: blur(2px);
+  z-index: -1;
 }
 
-/* LOADING */
-
-#loading-screen{
-
-position:fixed;
-inset:0;
-
-background:#f9d7e1;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-z-index:9999;
+/* ============================
+   LOADING SCREEN
+   ============================ */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  background: #f9d7e1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
 }
 
-.intro-box{
-
-text-align:center;
-
-animation:fadeIn 2s;
-}
-
-.intro-box h1{
-
-font-family:'arial black',sans-serif;
-font-size:70px;
-
-color:#c85c8e;
-}
-
-.intro-box p{
-
-margin-top:10px;
-color:#7c4a63;
-}
-
-.intro-box button{
-
-margin-top:30px;
-
-padding:15px 35px;
-
-border:none;
-
-background:#ff7bac;
-
-color:white;
-
-border-radius:50px;
-
-font-size:18px;
-
-cursor:pointer;
-
-box-shadow:0 10px 20px rgba(0,0,0,.2);
-}
-
-/* HERO */
-
-.hero{
-
-height:100vh;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-padding:20px;
-}
-
-.glass-card{
-
-width:100%;
-max-width:800px;
-
-background:rgba(255,255,255,.6);
-
-backdrop-filter:blur(12px);
-
-padding:50px;
-
-border-radius:30px;
-
-text-align:center;
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.2);
-}
-
-.glass-card h1{
-
-font-family:'ARIAL BLACK',sans-serif;
-
-font-size:100px;
-
-color:#d14d72;
-
-}
-
-.glass-card h2{
-
-color:#8f5571;
-}
-
-.glass-card h3{
-
-color:#b95a7d;
-}
-
-#typing{
-
-margin-top:20px;
-
-font-size:20px;
-
-color:#6a4257;
-
-min-height:50px;
-}
-
-#surpriseBtn{
-
-margin-top:25px;
-
-padding:15px 35px;
-
-border:none;
-
-border-radius:50px;
-
-background:#ff7bac;
-
-color:white;
-
-cursor:pointer;
-
-font-size:18px;
-}
-
-/* LETTER */
-
-.letter-section{
-
-padding:100px 20px;
-}
-
-.letter{
-
-max-width:900px;
-
-margin:auto;
-
-background:rgba(255,255,255,.75);
-
-backdrop-filter:blur(10px);
-
-padding:60px;
-
-border-radius:25px;
-
-line-height:2;
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.15);
-
-border:2px dashed #d9a5b3;
-}
-
-.letter h2{
-
-font-family:'ARIAL BLACK',sans-serif;
-
-font-size:60px;
-
-color:#d14d72;
-
-margin-bottom:20px;
-}
-
-.love{
-
-text-align:center;
-
-margin-top:30px;
-
-font-size:25px;
-}
-
-/* POLAROID */
-
-.memory-board{
-
-position:relative;
-
-min-height:1200px;
-
-padding-top:100px;
-}
-
-.memory-title{
-
-text-align:center;
-
-font-size:30px;
-
-font-family:'ARIAL BLACK',sans-serif;
-
-color:#c54c7c;
-}
-
-.polaroid{
-
-position:absolute;
-
-width:260px;
-
-background:white;
-
-padding:10px 10px 50px;
-
-border-radius:10px;
-
-box-shadow:
-0 15px 30px rgba(0,0,0,.25);
-
-transition:.5s;
-}
-
-.polaroid:hover{
-
-transform:scale(1.1) rotate(0deg);
-
-z-index:999;
-}
-
-.polaroid img{
-
-width:100%;
-
-height:260px;
-
-object-fit:cover;
-}
-
-.polaroid span{
-
-display:block;
-
-margin-top:15px;
-
-text-align:center;
-
-font-family:'ARIAL BLACK',sans-serif;
-
-font-size:30px;
-}
-
-.p1{
-left:5%;
-top:100px;
-transform:rotate(-10deg);
-}
-
-.p2{
-right:5%;
-top:250px;
-transform:rotate(12deg);
-}
-
-.p3{
-left:15%;
-top:650px;
-transform:rotate(-15deg);
-}
-
-.p4{
-right:15%;
-top:750px;
-transform:rotate(-12deg);
-}
-
-.p5{
-right:40%;
-top:450px;
-transform:rotate(15deg);
-} 
-
-.p6{
-right:50%;
-top:200px;
-transform:rotate(15deg);
-}
-
-.p7{
-left:50%;
-top:170px;
-transform:rotate(-20deg);
-}
-
-/* FLOWERS */
-
-.flower{
-
-position:fixed;
-
-top:-50px;
-
-pointer-events:none;
-
-animation:fall linear infinite;
-
-z-index:999;
-}
-
-@keyframes fall{
-
-from{
-transform:translateY(-50px) rotate(0deg);
-}
-
-to{
-transform:translateY(110vh) rotate(360deg);
-}
-
-}
-
-/* POPUP */
-
-#popup{
-
-position:fixed;
-
-inset:0;
-
-display:none;
-
-justify-content:center;
-align-items:center;
-
-background:rgba(0,0,0,.4);
-
-z-index:9999;
-}
-
-.popup-content{
-
-background:white;
-
-padding:40px;
-
-border-radius:20px;
-
-text-align:center;
-}
-
-@keyframes fadeIn{
-
-from{
-opacity:0;
-transform:translateY(30px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-@media(max-width:768px){
-
-.glass-card h1{
-font-size:65px;
-}
-
-.memory-board{
-min-height:auto;
-}
-
-.polaroid{
-
-position:relative;
-
-left:auto !important;
-right:auto !important;
-top:auto !important;
-
-margin:30px auto;
-
-display:block;
-}
-
-}
-/* --- CSS UNTUK BUNGA DI HALAMAN AWAL --- */
-.flower-side {
-  position: absolute;
-  top: 0;
-  height: 100vh;           /* Mengikuti tinggi layar penuh */
-  max-width: 350px;        /* Mengatur batas lebar bunga */
-  object-fit: contain;     /* Menjaga proporsi gambar tidak gepeng */
-  pointer-events: none;    /* Agar gambar tidak menghalangi tombol saat diklik */
-  mix-blend-mode: multiply;/* Trik ajaib untuk menghilangkan background putih JPG */
-  z-index: 1;              /* Meletakkan bunga di belakang teks */
-}
-
-.flower-left {
-  left: 0;
-}
-
-.flower-right {
-  right: 0;
-}
-
-/* Pastikan elemen teks berada di atas bunga */
 .intro-box {
   text-align: center;
   animation: fadeIn 2s;
   position: relative;
-  z-index: 10; 
+  z-index: 10;
+  padding: 0 20px;
+  max-width: 600px;
+  width: 100%;
 }
 
-/* Penyesuaian ukuran bunga untuk tampilan HP (Mobile) */
-@media(max-width: 768px) {
-  .flower-side {
-    max-width: 150px;
-    opacity: 0.6; /* Dibuat sedikit transparan agar layar HP tidak terlalu penuh */
-  }
+.intro-box h1 {
+  font-family: 'Arial Black', sans-serif;
+  font-size: clamp(1.2rem, 5vw, 2.8rem);
+  color: #c85c8e;
+  line-height: 1.3;
+}
+
+.intro-box p {
+  margin-top: 10px;
+  color: #7c4a63;
+  font-size: clamp(0.8rem, 3vw, 1rem);
+}
+
+.intro-box button {
+  margin-top: 25px;
+  padding: clamp(10px, 3vw, 15px) clamp(20px, 6vw, 35px);
+  border: none;
+  background: #ff7bac;
+  color: white;
+  border-radius: 50px;
+  font-size: clamp(0.9rem, 4vw, 1.1rem);
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+.flower-side {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  max-width: clamp(80px, 25vw, 350px);
+  object-fit: contain;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+.flower-left  { left: 0; }
+.flower-right { right: 0; }
+
+/* ============================
+   HERO SECTION
+   ============================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(15px, 5vw, 40px);
+  background: url("bg.jpg") center center / cover no-repeat;
+  position: relative;
+}
+
+/* Overlay hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 0;
+}
+
+/* Fade bawah hero → nyambung ke letter-section */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(to bottom, transparent, rgba(180, 60, 100, 0.6));
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero .glass-card {
+  position: relative;
+  z-index: 2;
+}
+
+.glass-card {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  padding: clamp(25px, 6vw, 50px);
+  border-radius: clamp(15px, 4vw, 30px);
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,.4);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.glass-card h1 {
+  font-family: 'Arial Black', sans-serif;
+  font-size: clamp(1.6rem, 8vw, 5rem);
+  color: #ffffff;
+  line-height: 1.2;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.glass-card h2 {
+  color: #ffe0ef;
+  font-size: clamp(0.85rem, 3.5vw, 1.3rem);
+  margin-top: 8px;
+}
+
+.glass-card h3 {
+  color: #ffd6eb;
+  font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+  margin-bottom: 5px;
+}
+
+#typing {
+  margin-top: 15px;
+  font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+  color: #ffe8f4;
+  min-height: 40px;
+}
+
+#surpriseBtn {
+  margin-top: 20px;
+  padding: clamp(10px, 3vw, 15px) clamp(20px, 6vw, 35px);
+  border: none;
+  border-radius: 50px;
+  background: #ff7bac;
+  color: white;
+  cursor: pointer;
+  font-size: clamp(0.9rem, 4vw, 1.1rem);
+}
+
+/* ============================
+   LETTER SECTION
+   ============================ */
+.letter-section {
+  padding: clamp(40px, 10vw, 100px) clamp(15px, 5vw, 20px);
+  background: url("bg1.jpg") center center / cover no-repeat;
+  position: relative;
+}
+
+/* Fade atas letter ← nyambung dari hero */
+.letter-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 180px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Overlay tengah + fade bawah letter → nyambung ke memory-board */
+.letter-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      transparent 0%,
+      rgba(180, 60, 100, 0.4) 15%,
+      rgba(180, 60, 100, 0.4) 85%,
+      rgba(100, 30, 60, 0.55) 100%
+    );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.letter {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  padding: clamp(25px, 6vw, 60px);
+  border-radius: clamp(15px, 4vw, 25px);
+  line-height: 1.9;
+  box-shadow: 0 20px 50px rgba(0,0,0,.3);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+}
+
+.letter h2 {
+  font-family: 'Arial Black', sans-serif;
+  font-size: clamp(1.8rem, 7vw, 3.5rem);
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.letter p {
+  font-size: clamp(0.85rem, 3.5vw, 1rem);
+  color: #fff0f6;
+  white-space: pre-line;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.love {
+  text-align: center;
+  margin-top: 30px;
+  font-size: clamp(1rem, 4.5vw, 1.4rem);
+  color: #ffd6eb;
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* ============================
+   MEMORY / POLAROID SECTION
+   ============================ */
+.memory-board {
+  padding: clamp(30px, 8vw, 80px) clamp(15px, 5vw, 40px);
+  background: url("bg2.jpg") center center / cover no-repeat;
+  position: relative;
+}
+
+/* Fade atas memory ← nyambung dari letter */
+.memory-board::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 180px;
+  background: linear-gradient(to bottom, rgba(180, 60, 100, 0.55), transparent);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Overlay keseluruhan memory */
+.memory-board::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(100, 30, 60, 0.50);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.memory-title {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: clamp(1.1rem, 5vw, 1.8rem);
+  font-family: 'Arial Black', sans-serif;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  margin-bottom: clamp(20px, 5vw, 40px);
+}
+
+.polaroid-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+  gap: clamp(15px, 4vw, 30px);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.polaroid {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 10px 10px clamp(30px, 8vw, 50px);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  transition: transform .3s, box-shadow .3s;
+}
+
+.polaroid:nth-child(odd)  { transform: rotate(-2deg); }
+.polaroid:nth-child(even) { transform: rotate(2deg); }
+
+.polaroid:hover {
+  transform: scale(1.07) rotate(0deg);
+  box-shadow: 0 25px 50px rgba(0,0,0,.5);
+  z-index: 10;
+  position: relative;
+}
+
+.polaroid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.polaroid span {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  font-family: 'Arial Black', sans-serif;
+  font-size: clamp(0.75rem, 3vw, 1rem);
+  color: #6a4257;
+}
+
+/* ============================
+   POPUP
+   ============================ */
+#popup {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,.5);
+  z-index: 9999;
+  padding: 20px;
+}
+
+.popup-content {
+  background: white;
+  padding: clamp(25px, 6vw, 40px);
+  border-radius: 20px;
+  text-align: center;
+  max-width: 350px;
+  width: 100%;
+  box-shadow: 0 20px 50px rgba(0,0,0,.4);
+}
+
+.popup-content h2 {
+  font-size: clamp(1.2rem, 5vw, 1.6rem);
+  color: #d14d72;
+  margin-bottom: 10px;
+}
+
+.popup-content p {
+  font-size: clamp(0.85rem, 3.5vw, 1rem);
+  color: #6a4257;
+}
+
+/* ============================
+   BUNGA JATUH
+   ============================ */
+.flower {
+  position: fixed;
+  top: -50px;
+  pointer-events: none;
+  animation: fall linear infinite;
+  z-index: 999;
+}
+
+@keyframes fall {
+  from { transform: translateY(-50px) rotate(0deg); }
+  to   { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* ============================
+   ANIMASI
+   ============================ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 </style>
 </head>
 <body>
 
+<!-- LOADING -->
 <div id="loading-screen">
-
-  <img src="bunga-kiri.jpg" class="flower-side flower-left" alt="Bunga">
+  <img src="bunga-kiri.jpg"  class="flower-side flower-left"  alt="Bunga">
   <img src="bunga-kanan.jpg" class="flower-side flower-right" alt="Bunga">
-
   <div class="intro-box">
-    <h1> FROM NUCKY BAIK TIDAK SOMBONG & SMART  </h1>
-    <p>Untuk Fadillah/dila calon ceo plengger </p>
-    <button id="startBtn">
-      💌 Buka Surat
-    </button>
+    <h1>FROM NUCKY BAIK TIDAK SOMBONG & SMART</h1>
+    <p>Untuk Fadillah/dila calon ceo plengger</p>
+    <button id="startBtn">💌 Buka Surat</button>
   </div>
-
 </div>
 
+<!-- HERO -->
 <section class="hero">
-
-<div class="glass-card">
-
-<h3>🎂 Happy Birthday 🎂</h3>
-
-<h1>PRINCES ONLY 1 IN THE WORLD </h1>
-
-<h2>05 Juni , 2008 sebelum masehi</h2>
-
-<div id="typing"></div>
-
-<button id="surpriseBtn">
-🎉 Surprise
-</button>
-
-</div>
-
+  <div class="glass-card">
+    <h3>🎂 Happy Birthday 🎂</h3>
+    <h1>PRINCES ONLY 1 IN THE WORLD</h1>
+    <h2>05 Juni , 2008 sebelum masehi</h2>
+    <div id="typing"></div>
+    <button id="surpriseBtn">🎉 Surprise</button>
+  </div>
 </section>
 
+<!-- SURAT -->
 <section class="letter-section">
-
-<div class="letter">
-
-<h2> TO-DILAA</h2>
-
-<p>
+  <div class="letter">
+    <h2>TO-DILAA</h2>
+    <p>
 Selamat ulang tahun, Fadillah! 🎉🎂
 
 Hari ini usiamu bertambah, dan semoga bersama bertambahnya usia, bertambah juga kebahagiaan, kesehatan, rezeki, serta segala hal baik dalam hidupmu. Semoga setiap langkah yang kamu ambil selalu diberi kemudahan dan keberkahan.
@@ -550,75 +465,52 @@ Terima kasih sudah menjadi pribadi yang baik dan menyenangkan. Tetap jadi dirimu
 Sekali lagi, selamat ulang tahun, Fadillah. Semoga tahun ini menjadi awal dari banyak kabar baik, banyak pencapaian, dan banyak kebahagiaan yang datang dalam hidupmu.
 
 Aamiin.
-
-</p>
-
-<p class="love">
-Happy Birthday PLENGGER
-</p>
-
-</div>
-
+    </p>
+    <p class="love">Happy Birthday PLENGGER 🎂</p>
+  </div>
 </section>
 
+<!-- POLAROID / MEMORY BOARD -->
 <section class="memory-board">
+  <h2 class="memory-title">DI BAWAH INI LIST FOTO SUAMI FADILLAH</h2>
 
-<h2 class="memory-title">
-SEKIANN TERIMAKASIH.......
-</h2>
-
-<div class="polaroid p1">
-<img src="foto1.jpg">
-<span>KANDA BAHLIL</span>
-</div>
-
-<div class="polaroid p2">
-<img src="foto2.jpg">
-<span>PRABRORO LITE</span>
-</div>
-
-<div class="polaroid p3">
-<img src="foto3.jpg">
-<span>JOKOWI GANTENG</span>
-</div>
-
-<div class="polaroid p4">
-<img src="foto4.jpg">
-<span>OWI SIGMA </span>
-</div>
-
-<div class="polaroid p5">
-<img src="foto5.jpg">
-<span>SAWOWO</span>
-</div>
-
-<div class="polaroid p6">
-<img src="foto6.jpg">
-<span>BAHLIL IJO</span>
-</div>
-
-<div class="polaroid p7">
-<img src="foto7.jpg">
-<span>GIBRAN </span>
-</div>
+  <div class="polaroid-grid">
+    <div class="polaroid">
+      <img src="foto2.jpg" alt="foto">
+      <span>PRABRORO LITE</span>
+    </div>
+    <div class="polaroid">
+      <img src="foto3.jpg" alt="foto">
+      <span>JOKOWI GANTENG</span>
+    </div>
+    <div class="polaroid">
+      <img src="foto4.jpg" alt="foto">
+      <span>OWI SIGMA</span>
+    </div>
+    <div class="polaroid">
+      <img src="foto5.jpg" alt="foto">
+      <span>SAWOWO</span>
+    </div>
+    <div class="polaroid">
+      <img src="foto6.jpg" alt="foto">
+      <span>BAHLIL IJO</span>
+    </div>
+    <div class="polaroid">
+      <img src="foto7.jpg" alt="foto">
+      <span>GIBRAN</span>
+    </div>
+  </div>
 </section>
 
+<!-- POPUP -->
 <div id="popup">
-
-<div class="popup-content">
-
-<h2>🎉 Happy Birthday 🎉</h2>
-
-<p>
-Semoga hari ini penuh kebahagiaan 
-</p>
-
-</div>
-
+  <div class="popup-content">
+    <h2>🎉 Happy Birthday 🎉</h2>
+    <p>Semoga hari ini penuh kebahagiaan</p>
+  </div>
 </div>
 
 <script src="script.js"></script>
-
 
 </body>
 </html>

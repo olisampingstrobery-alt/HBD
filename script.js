@@ -1,5 +1,5 @@
 const text =
-"siah TUA , INFO NILAI PKN 34 BOSSSS";
+"fadilah lucu imuft baik hati dan tidak sombonk, INFO NILAI PKN 34 BOSSSS";
 
 let i = 0;
 
